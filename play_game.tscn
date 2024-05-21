@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://boqcvc1bj4c5"]
+
+[ext_resource type="Script" path="res://play_game.gd" id="1_y6ikp"]
+[ext_resource type="Texture2D" uid="uid://cwtyayss4eivi" path="res://sprites/mage-2-122x110.png" id="2_njqwu"]
+[ext_resource type="Texture2D" uid="uid://mjfd7a77qa1s" path="res://sprites/Galata-Tower_0000.png" id="3_l7h7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kerox"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(0, 0, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi8ks"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(122, 0, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfrp5"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(244, 0, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aitn"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(366, 0, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_163qp"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(0, 110, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwnvq"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(122, 110, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msjm1"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(244, 110, 122, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lulci"]
+atlas = ExtResource("2_njqwu")
+region = Rect2(366, 110, 122, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tp35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kerox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi8ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfrp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aitn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_163qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwnvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msjm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lulci")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52oai"]
+radius = 59.3043
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsohw"]
+size = Vector2(110, 520)
+
+[node name="PlayGame" type="Node2D"]
+script = ExtResource("1_y6ikp")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(141, 341)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_2tp35")
+autoplay = "default"
+frame_progress = 0.720909
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_52oai")
+metadata/_edit_lock_ = true
+
+[node name="Galata-tower0000" type="Sprite2D" parent="."]
+position = Vector2(1091, 186)
+texture = ExtResource("3_l7h7b")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Reach the tower to exit."
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1066, 289)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vsohw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_entered"]

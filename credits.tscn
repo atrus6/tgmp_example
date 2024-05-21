@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlud2aljm0kss"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_8hkqs"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hkqs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_right = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sprites"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=https://opengameart.org/content/bosses-and-monsters-spritesheets-ars-notoria]Mage[/url] by [url=https://opengameart.org/users/redshrike]Redshrike[/url]"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=https://opengameart.org/content/galata-tower-bleeds-game-art]Tower[/url] by [url=https://opengameart.org/users/bleed]Bleed[/url]"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=https://opengameart.org/content/hypnotic-chill-extended-4-minute-mix]HypnoticChill[/url]"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=https://opengameart.org/content/crystal-cave-song18]Crystal Cave[/url]"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Both by [url=https://opengameart.org/users/cynicmusic]CynicMusic[/url]"
+fit_content = true
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel2" to="." method="clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel3" to="." method="clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel4" to="." method="clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel5" to="." method="clicked"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
